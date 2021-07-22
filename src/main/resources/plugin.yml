@@ -1,0 +1,7 @@
+name: WanderingTraderHighlight
+version: ${project.version}
+main: net.plugins.logix.wanderingtraderhighlight.WanderingTraderHighlight
+api-version: 1.17
+prefix: WanderingTraderHighlight
+authors: [ Logix ]
+description: Temporarily highlights the Wandering Trader upon spawn, to help you locate him.
