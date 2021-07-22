@@ -29,8 +29,8 @@ public class SpawnListener implements Listener
             if (nearestPlayer != null)
             {
                 // Send a message to all online players
-                String messageForEveryoneElse = ChatColor.GRAY + "A Wandering Trader has spawned near " + ChatColor.BLUE + nearestPlayer.getDisplayName();
-                String messageForNearestPlayer = ChatColor.GRAY + "A Wandering Trader has spawned near you!";
+                String messageForEveryoneElse = italic(ChatColor.GRAY) + "A " + italic(ChatColor.BLUE) + "Wandering Trader" + italic(ChatColor.GRAY) + " has spawned near " + italic(ChatColor.BLUE) + nearestPlayer.getDisplayName() + italic(ChatColor.GRAY) + "!";
+                String messageForNearestPlayer = italic(ChatColor.GRAY) + "A " + italic(ChatColor.BLUE) + "Wandering Trader" + italic(ChatColor.GRAY )+ " has spawned near you!";
 
                 for (Player onlinePlayer : WanderingTraderHighlight.getInstance().getServer().getOnlinePlayers())
                 {
@@ -39,8 +39,19 @@ public class SpawnListener implements Listener
             }
 
             // Make the trader glow!
+            WanderingTraderHighlight.getInstance().addToTeam(trader);
             trader.addPotionEffect(GLOW_POTION_EFFECT);
         }
+    }
+
+    /**
+     * Helper function to make text italic and use a specified colour
+     * @param colour The colour to use
+     */
+    @SuppressWarnings("SameParameterValue")
+    private static String italic(ChatColor colour)
+    {
+        return colour + "" + ChatColor.ITALIC;
     }
 
     /**
